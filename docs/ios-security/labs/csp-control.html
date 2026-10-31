@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="script-src 'none'">
+<title>CSP control</title>
+<pre id="out">csp held</pre>
+<script>
+document.getElementById("out").textContent = "UNEXPECTED script ran";
+</script>
