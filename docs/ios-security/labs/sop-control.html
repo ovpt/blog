@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>SOP control</title>
+<p>Parent origin is this page. The iframe is example.com.</p>
+<iframe id="frame" src="https://example.com/"></iframe>
+<pre id="out">waiting for iframe</pre>
+<script>
+document.getElementById("frame").addEventListener("load", function () {
+  var out = document.getElementById("out");
+  try {
+    var title = document.getElementById("frame").contentDocument.title;
+    out.textContent = "UNEXPECTED read title=" + title;
+  } catch (error) {
+    out.textContent = "expected block: " + error.name + ": " + error.message;
+  }
+});
+</script>
